@@ -1,0 +1,20 @@
+{
+  "name": "fbotapp",
+  "version": "1.0.0",
+  "description": "facebook messager bot",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Abimbola Olaitan",
+  "license": "MIT"
+}
