@@ -37,7 +37,7 @@ app.post('/webhook', function (req, res) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
     }
-    res.status(200);
+    res.status(200).end();
 });
 
 
