@@ -2,14 +2,14 @@
   "name": "fb-bot",
   "version": "1.0.0",
   "description": "Movies maker bot",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
     
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/craftword/Bootcamp-LOS-24--PostIt-Project.git"
+    "url": "git+https://github.com/craftword/bot"
   },
   "keywords": [
     "fb bot",
