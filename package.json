@@ -1,20 +1,40 @@
 {
-  "name": "fbotapp",
+  "name": "fb-bot",
   "version": "1.0.0",
-  "description": "facebook messager bot",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "request": "^2.81.0"
-  },
-  "devDependencies": {},
+  "description": "Movies maker bot",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craftword/Bootcamp-LOS-24--PostIt-Project.git"
   },
   "keywords": [
-    "bot"
+    "fb bot",
+    "messaeger"
   ],
   "author": "Abimbola Olaitan",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craftword/bot/issues"
+  },
+  "engines": {
+    "node": "8.1.3",
+    "npm": "4.5.0"
+  },
+  "homepage": "https://github.com/craftword/bot",
+  
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.2.1"
+  }
 }
