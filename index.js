@@ -23,9 +23,9 @@ app.get('/', function (req, res) {
 // for Facebook verification
 app.get('/webhook', function (req, res) {
 	if (req.query['hub.verify_token'] === VERIFY_TOKEN) {
-		res.send(req.query['hub.challenge'])
+		res.status(200).send(req.query['hub.challenge'])
 	}
-	res.send('Error, wrong token')
+	res.status(403).send('Error, wrong token')
 })
 
 // Spin up the server
