@@ -27,14 +27,10 @@
   "homepage": "https://github.com/craftword/bot",
   
   "dependencies": {
-    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "jsonwebtoken": "^7.4.1",
     "morgan": "^1.8.2",
-    "nodemon": "^1.11.0",
-    "pg": "^6.4.0",
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^4.2.1"
+    "apiai":"^4.0.3"
+    
   }
 }
