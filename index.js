@@ -146,3 +146,38 @@ function prepareSendBio(sender) {
   };
   sendMessage(messageData);
 }
+
+
+/* Webhook for API.ai to get response from the 3rd party API */
+app.post('/ai', (req, res) => {
+  console.log('*** Webhook for api.ai query ***');
+  console.log(req.body.result);
+
+  if (req.body.result.action === 'movies') {
+    console.log('*** movies ***');
+    let movie = req.body.result.parameters['movie-title'];
+    let restUrl = 'http://www.omdbapi.com/?t='+movie+'&apikey='+process.env.API_KEY;
+
+    request.get(restUrl, (err, response, body) => {
+      if (!err && response.statusCode == 200) {
+        let json = JSON.parse(body);
+        console.log(json);
+        let msg = json.Title + 'is directed by' + json.Director + 'shot in year ' +json.Year+ ', Released in ' +json.Released
+        return res.json({
+          speech: msg,
+          displayText: msg,
+          source: 'movies'
+        });
+      } else {
+        let errorMessage = 'No movie with this title in our database.';
+        return res.status(400).json({
+          status: {
+            code: 400,
+            errorType: errorMessage
+          }
+        });
+      }
+    })
+  }
+
+});
