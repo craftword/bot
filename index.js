@@ -156,13 +156,13 @@ app.post('/ai', (req, res) => {
   if (req.body.result.action === 'movies') {
     console.log('*** movies ***');
     let movie = req.body.result.parameters['movie-title'];
-    let restUrl = 'http://www.omdbapi.com/?t='+movie+'&apikey='+process.env.API_KEY;
-
+    //let restUrl = 'http://www.omdbapi.com/?t='+movie+'&apikey='+process.env.API_KEY;
+    let restUrl = 'https://moviesapi.com/m.php?t='+movie+'&y=&type=movie&r=json'
     request.get(restUrl, (err, response, body) => {
       if (!err && response.statusCode == 200) {
         let json = JSON.parse(body);
         console.log(json);
-        let msg = json.Title + 'is directed by' + json.Director + 'shot in year ' +json.Year+ ', Released in ' +json.Released
+        let msg = json[0].title + 'shot in year ' +json[0].year;
         return res.json({
           speech: msg,
           displayText: msg,
