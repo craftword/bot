@@ -154,21 +154,21 @@ app.post('/ai', (req, res) => {
   console.log('*** Webhook for api.ai query ***');
   console.log(req.body.result);
 
-  if (req.body.result.action === 'movies') {
+  if (req.body.result.action === 'video.search') {
     console.log('*** movies ***');
-    let city = req.body.result.parameters['geo-city'];
+    let movie = req.body.result.parameters['video'];
     //let restUrl = 'http://www.omdbapi.com/?t='+movie+'&apikey='+process.env.API_KEY;
-    //let restUrl = 'https://moviesapi.com/m.php?t='+movie+'&y=&type=movie&r=json'
+    let restUrl = 'https://moviesapi.com/m.php?t='+movie+'&y=&type=movie&r=json'
 
-     let restUrl = 'http://api.openweathermap.org/data/2.5/weather?APPID='+process.env.API_KEY+'&q='+city;
+     //let restUrl = 'http://api.openweathermap.org/data/2.5/weather?APPID='+process.env.API_KEY+'&q='+city;
     request.get(restUrl, (err, response, body) => {
       if (!err && response.statusCode == 200) {
         let json = JSON.parse(body);
         console.log(json);
-        //let msg = json[0].title + 'shot in year ' +json[0].year;
-        let tempF = ~~(json.main.temp * 9/5 - 459.67);
-        let tempC = ~~(json.main.temp - 273.15);
-        let msg = 'The current condition in ' + json.name + ' is ' + json.weather[0].description + ' and the temperature is ' + tempF + ' F (' +tempC+ ' F).'
+        let msg = json[0].title + 'shot in year ' +json[0].year;
+        /*let tempF = (json.main.temp * 9/5 - 459.67);
+        let tempC = (json.main.temp - 273.15);
+        let msg = 'The current condition in ' + json.name + ' is ' + json.weather[0].description + ' and the temperature is ' + tempF + ' F (' +tempC+ ' F).'*/
         return res.json({
           speech: msg,
           displayText: msg,
