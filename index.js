@@ -52,7 +52,7 @@ function receivedMessage(event) {
   let text = event.message.text;
 
   let apiai = apiaiApp.textRequest(text, {
-    sessionId: 'tabby_cat'
+    sessionId: event.sender.id;
   });
 
   apiai.on('response', (response) => {
